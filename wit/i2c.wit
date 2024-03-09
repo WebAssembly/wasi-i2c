@@ -1,0 +1,82 @@
+package wasi:i2c@0.0.0;
+
+/// Inter-Integrated Circuit (I²C) API that is based upon [hello-embedded] and [embedded-hal].
+/// 
+/// [hello-embedded]: https://github.com/sunfishcode/hello-embedded/tree/main
+/// [embedded-hal]: https://github.com/rust-embedded/embedded-hal
+interface i2c {
+    /// An address value, in either 7-bit or 10-bit form, depending on the device.
+    type address = u16;
+
+    /// Operation errors.
+    variant error-code {
+        /// Bus error occurred. e.g. A START or a STOP condition is detected and
+        /// is not located after a multiple of 9 SCL clock pulses.
+        bus,
+
+        /// The arbitration was lost, e.g. electrical problems with the clock signal.
+        arbitration-loss,
+
+        /// A bus operation was not acknowledged, e.g. due to the addressed
+        /// device not being available on the bus or the device not being ready
+        /// to process requests at the moment.
+        no-acknowledge(no-acknowledge-source),
+
+        /// The peripheral receive buffer was overrun.
+        overrun,
+
+        /// A different error occurred.
+        other,
+    }
+
+    /// No-acknowledge error source.
+    ///
+    /// In cases where it is possible, a device should indicate if a no
+    /// acknowledge response was received to an address versus a no acknowledge
+    /// to a data byte. Where it is not possible to differentiate, Unknown
+    /// should be indicated.
+    enum no-acknowledge-source {
+        /// The device did not acknowledge its address. The device may be
+        /// missing.
+        address,
+
+        /// The device did not acknowledge the data. It may not be ready to
+        /// process requests at the moment.
+        data,
+
+        /// Either the device did not acknowledge its address or the data, but
+        /// it is unknown which.
+        unknown,
+    }
+
+    /// An operation used by the `transaction` method.
+    variant operation {
+        /// Read the give number of bytes.
+        read(u64),
+
+        /// Write the given bytes.
+        write(list<u8>)
+    }
+
+    resource i2c {
+        /// Execute the provided `operation`s on the I²C bus.
+        transaction: func(
+            address: address,
+            operations: list<operation>
+        ) -> result<list<list<u8>>, error-code>;
+
+        /// Reads `len` bytes from address `address`.
+        read: func(address: address, len: u64) -> result<list<u8>, error-code>;
+
+        /// Writes bytes to target with address `address`.
+        write: func(address: address, data: list<u8>) -> result<_, error-code>;
+
+        /// Writes bytes to address `address` and then reads `read-len` bytes
+        /// in a single transaction.
+        write-read: func(
+           address: address,
+           write: list<u8>,
+           read-len: u64,
+        ) -> result<list<u8>, error-code>;
+    }
+}
