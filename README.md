@@ -20,6 +20,8 @@ TODO before entering Phase 2.
 
 The WASI-I2C proposal defines an API for the I2C protocol. The API of [embedded_hal](https://github.com/rust-embedded/embedded-hal) is closely followed.
 
+Reference implementations can be found in [i2c-wasm-components](https://github.com/Zelzahn/i2c-wasm-components). Furthermore, there is also a [wasi-embedded-hal](https://crates.io/crates/wasi-embedded-hal) crate that implements the `embedded-hal` traits for the generated bindings.
+
 ### Goals
 
 The primary goal is to provide an interface that WASI programs can use to read and write data over an I2C connection.
@@ -46,7 +48,7 @@ The full API documentation can be found [here](wasi-proposal-template.md).
 
 #### Should this be combined with SPI, GPIO and PWM into 1 embedded proposal?
 
-I'm not sure, although `embedded_hal` takes this approach it seems to me that until enough stakeholders are found the scope is best kept contained.
+Although `embedded_hal` takes this approach, I would keep them seperated for the time being. At least until each proposal is at least in Phase 2.
 
 ### Stakeholder Interest & Feedback
 
