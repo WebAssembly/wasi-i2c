@@ -12,9 +12,9 @@ wasi-i2c is currently in [Phase 1](https://github.com/WebAssembly/WASI/blob/main
 - Merlijn Sebrechts
 - Maximilian Seidler
 
-### Phase 4 Advancement Criteria
+### Portability Criteria
 
-TODO before entering Phase 2.
+WASI-I2C must have at least two complete independent implementations. One implementation must be implemented on a microcontroller.
 
 ### Introduction
 
@@ -48,7 +48,7 @@ The full API documentation can be found [here](wasi-proposal-template.md).
 
 #### Should this be combined with SPI, GPIO and PWM into 1 embedded proposal?
 
-Although `embedded_hal` takes this approach, I would keep them seperated for the time being. At least until each proposal is at least in Phase 2.
+Although `embedded_hal` takes this approach, I would keep them separated for now. At least until each proposal is at least in Phase 2.
 
 ### Stakeholder Interest & Feedback
 
