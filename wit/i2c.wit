@@ -1,4 +1,4 @@
-package wasi:i2c@0.1.0;
+package wasi:i2c@0.2.0-draft;
 
 /// Inter-Integrated Circuit (I²C) API that is based upon [hello-embedded] and [embedded-hal].
 /// 
