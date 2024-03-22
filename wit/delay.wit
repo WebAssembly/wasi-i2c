@@ -1,0 +1,12 @@
+package wasi:i2c@0.2.0-draft;
+
+/// Delays.
+interface delay {
+    /// Delay with up to nanosecond precision.
+    resource delay {
+        /// Pauses execution for at minimum `ns` nanoseconds. Pause can be
+        /// longer if the implementation requires it due to precision/timing
+        /// issues.
+        delay-ns: func(ns: u32);
+    }
+}
