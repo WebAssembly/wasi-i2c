@@ -50,10 +50,13 @@ The full API documentation can be found [here](wasi-proposal-template.md).
 
 Although `embedded_hal` takes this approach, I would keep them separated for now. At least until each proposal is at least in Phase 2.
 
+#### Why are there no constructors for the i2c interface? How does one obtain an i2c handle?
+
+I2c resources will be constructed in many different ways on different devices, so worlds that include the i2c interface should also include a way to obtain i2c handles. Typically this will either be by having i2c handles passed into exported functions as parameters, or by having i2c handles returned from imported functions.
+
 ### Stakeholder Interest & Feedback
 
 TODO before entering Phase 3.
-
 
 ### References & acknowledgements
 
