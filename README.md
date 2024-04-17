@@ -22,7 +22,7 @@ WASI-I2C must have at least an independent implementation for the following plat
 
 ### Introduction
 
-The WASI-I2C proposal defines an API for the I2C protocol. The API of [embedded_hal](https://github.com/rust-embedded/embedded-hal) is closely followed.
+The WASI-I2C proposal defines an API for the I2C protocol. The API of [embedded_hal](https://github.com/rust-embedded/embedded-hal) is taken as an inspiration, but it is not necessary to make use of this library to implement this proposal.
 
 Reference implementations can be found in [i2c-wasm-components](https://github.com/Zelzahn/i2c-wasm-components). Furthermore, there is also a [wasi-embedded-hal](https://crates.io/crates/wasi-embedded-hal) crate that implements the `embedded-hal` traits for the generated bindings.
 
@@ -33,6 +33,8 @@ The primary goal is to provide an interface that WASI programs can use to read a
 ### Non-goals
 
 Although I2C is in some aspects not that different from SPI, the purpose of this proposal is to solely focus on I2C.
+
+Currently, behaviour that is not specified by this API is seen as undefined and, unless there's sufficient interest, is regarded as out-of-scope.
 
 ### API walk-through
 
