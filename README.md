@@ -14,7 +14,11 @@ wasi-i2c is currently in [Phase 1](https://github.com/WebAssembly/WASI/blob/main
 
 ### Portability Criteria
 
-WASI-I2C must have at least an independent implementation for the following platforms: Linux, ARM, RISC-V and a RTOS (Zephyr or FreeRTOS). Furthermore, an implementation also needs to be provided for a microcontroller. Here, a Cortex-M4 is targeted as the lowerbound.
+WASI-I2C must have at least an independent implementation for the following platforms: 
+- Linux (ARM)
+- Linux (RISC-V)
+- RTOS (Zephyr or FreeRTOS)
+- Microcontroller implementation (Cortex M4 as a lowerbound)
 
 ### Introduction
 
