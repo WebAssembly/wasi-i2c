@@ -19,7 +19,7 @@ WASI-I2C must have at least an independent implementation for the following plat
 | ------------- | ------------- | ------------- |
 | Linux  | ARM  | Raspberry Pi 3 Model B |
 | Linux  | RISC-V  | ESP32 |
-| RTOS (Zephyr or FreeRTOS) | ARM32 | Nucleo F412ZG &
+| RTOS (Zephyr or FreeRTOS) | ARM32 | Nucleo F412ZG |
 
 Furthermore, implementations shouldn't take up all the available RAM.
 
