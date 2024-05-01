@@ -19,7 +19,7 @@ WASI-I2C must have an implementation for at least the following platforms:
 | Platform                  | Architecture  | Reference Hardware     |
 | ------------------------- | ------------- | ---------------------- |
 | Linux                     | ARM           | Raspberry Pi 3 Model B |
-| Linux                     | RISC-V        | ESP32-C3               |
+| RTOS (NuttX or Zephyr)    | RISC-V        | ESP32-C3               |
 | RTOS (Zephyr or FreeRTOS) | ARM32         | Nucleo F412ZG          |
 
 Furthermore, the interface should be designed in such a way to use as little memory as reasonably possible, to ensure enough RAM on these boards is still available for the applications.
