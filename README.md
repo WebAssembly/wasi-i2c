@@ -28,7 +28,7 @@ Furthermore, the interface should be designed in such a way to use as little mem
 
 The WASI-I2C proposal defines an API for the I2C protocol. The API of [embedded_hal](https://github.com/rust-embedded/embedded-hal) is closely followed.
 
-Reference implementations can be found in [i2c-wasm-components](https://github.com/Zelzahn/i2c-wasm-components). Furthermore, there is also a [wasi-embedded-hal](https://crates.io/crates/wasi-embedded-hal) crate that implements the `embedded-hal` traits for the generated bindings.
+Reference implementations can be found in [i2c-wasm-components](https://github.com/idlab-discover/i2c-wasm-components). Furthermore, there is also a [wasi-embedded-hal](https://crates.io/crates/wasi-embedded-hal) crate that implements the `embedded-hal` traits for the generated bindings.
 
 ### Goals
 
@@ -38,9 +38,10 @@ The primary goal is to provide an interface that WASI programs can use to read a
 
 Although I2C is in some aspects not that different from SPI, the purpose of this proposal is to solely focus on I2C.
 
-### API
+### API Walkthrough
 
-The full API documentation can be found [here](wasi-proposal-template.md).
+* The full API documentation can be found [here](wasi-proposal-template.md).
+* For an example of how to use this API, see [i2c-wasm-components](https://github.com/idlab-discover/i2c-wasm-components).
 
 ### Detailed design discussion
 
@@ -51,10 +52,6 @@ Although `embedded_hal` takes this approach, I would keep them separated for now
 #### Why are there no constructors for the i2c interface? How does one obtain an i2c handle?
 
 I2c resources will be constructed in many different ways on different devices, so worlds that include the i2c interface should also include a way to obtain i2c handles. Typically this will either be by having i2c handles passed into exported functions as parameters, or by having i2c handles returned from imported functions.
-
-### Stakeholder Interest & Feedback
-
-TODO before entering Phase 3.
 
 ### References & acknowledgements
 
