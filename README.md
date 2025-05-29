@@ -38,19 +38,9 @@ The primary goal is to provide an interface that WASI programs can use to read a
 
 Although I2C is in some aspects not that different from SPI, the purpose of this proposal is to solely focus on I2C.
 
-### API walk-through
+### API
 
 The full API documentation can be found [here](wasi-proposal-template.md).
-
-[Walk through of how someone would use this API.]
-
-#### [Use case 1]
-
-[Provide example code snippets and diagrams explaining how the API would be used to solve the given problem]
-
-#### [Use case 2]
-
-[etc.]
 
 ### Detailed design discussion
 
